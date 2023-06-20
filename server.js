@@ -7,6 +7,7 @@ const nodemon = require("nodemon");
 const userRoute = require("./routes/userRoute");
 const errorHandler = require("./middleWare/errorMiddleWare");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 
 const app = express();
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 //Middlewares
 app.use(express.json())
+app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
