@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const generateToken = (id) => {
-    return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: "1d"})
+    return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: "1d"});
 };
 
 //register user
@@ -97,7 +97,7 @@ const loginUser = asyncHandler(async (req, res) => {
    res.cookie("token", token, {
     path: "/",
     httpOnly: true,
-    expires: new Date(Date.now()+ 1000*86 ), //1 day
+    expires: new Date(Date.now()+ 1000*86400 ), //1 day
     sameSite: "none",
     secure: true
    });
